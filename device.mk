@@ -27,3 +27,4 @@ PRODUCT_COPY_FILES := \
 
 $(call inherit-product, device/motorola/omap34com/device.mk)
 $(call inherit-product-if-exists, vendor/motorola/shadow/shadow-vendor.mk)
+$(call inherit-product, device/motorola/shadow/liquid.mk)

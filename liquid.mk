@@ -5,7 +5,7 @@ PRODUCT_RELEASE_NAME := DROIDX
 $(call inherit-product, vendor/liquid/config/common_phone.mk)
 
 # device
-$(call inherit-product-if-exists, device/motorola/shadow/shadow.mk)
+#$(call inherit-product-if-exists, device/motorola/shadow/shadow.mk)
 
 # products
 PRODUCT_DEVICE := Shadow
