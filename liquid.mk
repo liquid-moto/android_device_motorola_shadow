@@ -8,7 +8,7 @@ $(call inherit-product, vendor/liquid/config/common_phone.mk)
 #$(call inherit-product-if-exists, device/motorola/shadow/shadow.mk)
 
 # products
-PRODUCT_DEVICE := Shadow
+PRODUCT_DEVICE := shadow
 PRODUCT_BRAND := google
 PRODUCT_NAME := liquid_shadow
 PRODUCT_MODEL := DROIDX
