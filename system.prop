@@ -6,20 +6,20 @@ rild.libargs=-d /dev/ttyS0
 ro.mot.ril.danlist=611,*611,#611
 persist.ril.ecclist=911,*911,#911
 persist.ril.modem.mode=1
-ro.ril.hsxpa=2
-ro.ril.gprsclass=14
+ro.ril.hsxpa=3
+ro.ril.gprsclass=10
 ro.ril.hep=1
-ro.ril.hsdpa.category=10
+ro.ril.hsdpa.category=8
 ro.ril.enable.3g.prefix=1
 ro.ril.htcmaskw1.bitmask=4294967295
 ro.ril.htcmaskw1=14449
-ro.ril.hsupa.category=7
+ro.ril.hsupa.category=6
 ro.ril.def.agps.mode=2
 ro.ril.def.agps.feature=1
 ro.ril.enable.sdr=1
 ro.ril.enable.gea3=1
 ro.ril.enable.fd.plmn.prefix=23402,23410,23411
-ro.ril.disable.power.collapse=1
+ro.ril.disable.power.collapse=0
 ro.ril.enable.a52=0
 ro.ril.enable.a53=0
 ro.ril.enable.dtm=1
@@ -27,7 +27,7 @@ ro.telephony.default_network=4
 ro.com.google.clientid=android-moto
 ro.cdma.home.operator.numeric=310004
 ro.cdma.home.operator.alpha=Verizon
-ro.config.vc_call_vol_steps=14
+ro.config.vc_call_vol_steps=7
 ro.cdma.nbpcd=1
 ro.com.android.dataroaming=true
 ro.cdma.otaspnumschema=SELC,1,80,99
@@ -52,6 +52,8 @@ ro.mot.buttonlight.timeout=1
 persist.mot.proximity.touch=1
 mot.proximity.delay=25
 mot.proximity.distance=60
+ro.mot.hw.calibratedImager=1
+ro.config.play.bootsound=0
 
 ro.HorizontalBUA=false
 ro.HorizontalVVM=false
@@ -60,12 +62,8 @@ ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 ro.url.safetylegal=http://www.motorola.com/staticfiles/Support/legal
 
-ro.media.capture.flip=horizontalandvertical
-ro.mot.hw.calibratedImager=1
-ro.config.play.bootsound=0
-ro.media.sensor.orient=90
-
 # Camera (settings from GB originally)
+#ro.media.camcorder.720p=3gp,m4v,30,10000000,aac,96000,44100,2
 ro.media.camcorder.d1NTSC=3gp,h264,30,6000000,aac,96000,44100,2
 ro.media.camcorder.vga=3gp,h264,30,4000000,aac,96000,44100,2
 ro.media.camcorder.cif=3gp,h264,30,1500000,aac,96000,44100,2
@@ -76,22 +74,12 @@ ro.media.capture.maxres=8m
 ro.media.capture.flash=led
 ro.media.capture.flashMinV=3500000
 ro.media.capture.classification=classE
+ro.media.capture.flip=horizontalandvertical
 ro.media.capture.fast.fps=4
 ro.media.capture.slow.fps=60
 ro.media.capture.useDFR=1
 ro.media.capture.shuttertone=1
 ro.media.capture.noSensorLSC=1
+ro.media.sensor.orient=90
 ro.media.panorama.defres=2048x1536
 ro.media.panorama.frameres=1280x720
-
-# GPU accel
-video.accelerate.hw=1
-debug.sf.hw=1
-debug.composition.type=gpu
-debug.egl.profiler=1
-debug.egl.hw=1
-# Touch Responsiveness
-debug.performance.tuning=1
-# Disables Debug Icon On Status Bar
-persist.adb.notify=0
-

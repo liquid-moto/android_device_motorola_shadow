@@ -19,8 +19,8 @@ PRODUCT_PROPERTY_OVERRIDES += ro.modversion=liquid.shadow.$(shell date +%m%d%y).
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_ID=IMM76D \
     PRODUCT_NAME=shadow_vzw \
-    BUILD_FINGERPRINT="google/soju/crespo:4.0.3/IML74K/239410:user/release-keys" \
-    PRIVATE_BUILD_DESC="soju-user 4.0.3 IML74K 239410 release-keys"
+    BUILD_FINGERPRINT="google/soju/crespo:4.0.4/IMM76D/239410:user/release-keys" \
+    PRIVATE_BUILD_DESC="soju-user 4.0.4 IMM76D 239410 release-keys"
 
 # media
 PRODUCT_COPY_FILES += \
