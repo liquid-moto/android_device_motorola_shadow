@@ -120,7 +120,7 @@ on post-fs-data
     # Create anr directory and change permission to 777 to save trace.txt
     mkdir /data/anr
     chmod 0777 /data/anr
-    
+
     # create opprof directory
     mkdir /data/opprof 0770 radio shell
     # create dropbear directory
@@ -396,17 +396,18 @@ service wlan_loader /system/bin/logwrapper /system/bin/wlan_loader -f /system/et
     disabled
     oneshot
 
+service wlan_ap_loader /system/bin/logwrapper /system/bin/wlan_loader -f /system/etc/wifi/fw_tiwlan_ap.bin -i /system/etc/wifi/tiwlan_ap.ini -e /pds/wifi/nvs_map.bin
+    class main
+    disabled
+    oneshot
+
 service wpa_supplicant /system/bin/wpa_supplicant -Dtiwlan0 -itiwlan0 -c /data/misc/wifi/wpa_supplicant.conf
     class main
     socket wpa_tiwlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
-service wlan_ap_loader /system/bin/logwrapper /system/bin/tiap_loader -f /system/etc/wifi/fw_tiwlan_ap.bin -i /system/etc/wifi/tiwlan_ap.ini -e /pds/wifi/nvs_map.bin
-    disabled
-    oneshot
-
-service hostap_netd /system/bin/hostap -d /data/misc/wifi/hostapd.conf
+service hostap_netd /system/bin/Hostapd -P /data/misc/wifi/hostapd/hostapd.pid -B /system/etc/wifi/hostapd.conf.templet
     class main
     group wifi system inet net_admin
     socket tiap0 dgram 660 wifi wifi
