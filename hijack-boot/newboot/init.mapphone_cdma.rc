@@ -80,6 +80,9 @@ on post-fs
     chown radio radio /pds/bp_nvm
     chmod 0770 /pds/bp_nvm
 
+	# SDcard speed tweak
+	write /sys/block/mmcblk0/bdi/read_ahead_kb 2048
+
     # create logger folder
     mkdir /data/logger 0770 radio log
     chown radio log /data/logger
@@ -330,7 +333,7 @@ service reboot_key /system/bin/reboot
 service usbd /system/bin/usbd
     class main
     user root
-    socket usbd stream 666 root system
+#    socket usbd stream 666 root system
 
 service start_commdrv /system/bin/sh /system/etc/motorola/comm_drv/commdrv_fs.sh
     class main
@@ -391,19 +394,19 @@ service akmd2 /system/bin/akmd2
     group compass misc input
 
 # Wifi services
-service wlan_loader /system/bin/logwrapper /system/bin/wlan_loader -f /system/etc/wifi/fw_wlan1271.bin -i /system/etc/wifi/tiwlan.ini -e /pds/wifi/nvs_map.bin
+service wlan_loader /system/bin/wlan_loader -f /system/etc/wifi/fw_wlan1271.bin -i /system/etc/wifi/tiwlan.ini -e /pds/wifi/nvs_map.bin
     class main
     disabled
     oneshot
 
-service wlan_ap_loader /system/bin/logwrapper /system/bin/wlan_loader -f /system/etc/wifi/fw_tiwlan_ap.bin -i /system/etc/wifi/tiwlan_ap.ini -e /pds/wifi/nvs_map.bin
-    class main
-    disabled
-    oneshot
-
-service wpa_supplicant /system/bin/wpa_supplicant -Dtiwlan0 -itiwlan0 -c /data/misc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -Dtiwlan0 -itiwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     class main
     socket wpa_tiwlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+service wlan_ap_loader /system/bin/tiap_loader -f /system/etc/wifi/fw_tiwlan_ap.bin -i /system/etc/wifi/tiwlan_ap.ini -e /pds/wifi/nvs_map.bin
+    class main
     disabled
     oneshot
 
